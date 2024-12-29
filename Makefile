@@ -7,15 +7,18 @@ OBJECTS = $(SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
+	# build library
 	make -C ./libft
 	make bonus -C ./libft
 	make -C ./ft_printf
+	# copy library
 	cp libft/libft.a $(NAME)
 	cp ft_printf/libftprintf.a $(NAME)
-	ar rcs $@ $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) -L./libft -lft -L./ft_printf -lftprintf
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I ./ft_printf -I ./libft
+	$(CC) $(CFLAGS) -c $< -I ./ft_printf -I ./libft
+	
 
 clean:
 	make fclean -C ./libft
