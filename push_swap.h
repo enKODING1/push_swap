@@ -21,6 +21,12 @@ typedef struct s_stack
 	int		count;
 }			t_stack;
 
+/*stack utils*/
+void	free_stack(t_stack *stack);
+void del(void *value);
+void show_list(void *content);
+
+/*push_swap utils*/
 int			stack_push(t_stack *src_stack, t_stack *dest_stack);
 int			stack_swap(t_stack *stack);
 int			stack_rotate(t_stack *stack);

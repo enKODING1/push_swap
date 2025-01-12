@@ -14,11 +14,8 @@
 #include "libft.h"
 #include "push_swap.h"
 
-static void		show_list(void *content);
-static void		del(void *value);
 static t_stack	*create_stack(void);
 static t_stack	*set_stack(t_stack *stack, char **words);
-static void		free_stack(t_stack *stack);
 
 int	main(int argc, char **argv)
 {
@@ -40,11 +37,6 @@ int	main(int argc, char **argv)
 	free_stack(stack_b);
 	free(words);
 	return (0);
-}
-
-static void	show_list(void *content)
-{
-	ft_printf("[%s]->", content);
 }
 
 static t_stack	*create_stack(void)
@@ -78,14 +70,3 @@ static t_stack	*set_stack(t_stack *stack, char **words)
 	return (stack);
 }
 
-static void	free_stack(t_stack *stack)
-{
-	if (stack && stack->top)
-		ft_lstclear(&stack->top, del);
-	free(stack);
-}
-
-static void	del(void *value)
-{
-	free(value);
-}

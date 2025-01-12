@@ -17,13 +17,14 @@ BONUS_OBJECTS = $(BONUS_SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	ar rc $(NAME) $^
+	ar rcs $(NAME) $^
 
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(BONUS_OBJECTS)
-	ar rc $(NAME) $^
+	ar rcs $(NAME) $^
 	cp $(NAME) $(NAME_BONUS)
+        
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ -I ./
 
