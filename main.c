@@ -32,10 +32,12 @@ int	main(int argc, char **argv)
 	stack_a = create_stack();
 	stack_b = create_stack();
 	stack_a = set_stack(stack_a, words);
-	ft_lstiter(stack_a->top, show_list);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	free(words);
+
+	stack_push(stack_a, stack_b);
+	show_stack_status(stack_a, stack_b);
+	// free_stack(stack_a);
+	// free_stack(stack_b);
+	// free(words);
 	return (0);
 }
 
