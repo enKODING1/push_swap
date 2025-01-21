@@ -10,46 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
-#include "push_swap.h"
+#include <stdio.h>
 
-static t_stack	*create_stack(void);
-static t_stack	*set_stack(t_stack *stack, char **words);
-
-int	main(int argc, char **argv)
+int valid_args(int argc, char **argv)
 {
-	valid_args(argc, argv);
-	return (0);
+    char **temp_args;
+    int i;
+   
+    i = 0;
+    if (argc == 2)
+        temp_args = ft_split(argv[1], ' ');
+    if (argc > 2)
+    {
+        i = 1;
+        temp_args = argv;
+    }
+
+    // while ()
+
 }
 
-static t_stack	*create_stack(void)
+int two_pointer_to_string(char **data)
 {
-	t_stack	*stack;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->top = NULL;
-	stack->count = 0;
-	return (stack);
-}
-
-static t_stack	*set_stack(t_stack *stack, char **words)
-{
-	int	i;
-		t_list *node;
-
-	i = 0;
-	while (words[i])
-	{
-		node = ft_lstnew(words[i++]);
-		if (!stack->top && !node)
-		{
-			stack->top = node;
-			continue ;
-		}
-		ft_lstadd_front(&(stack->top), node);
-	}
-	return (stack);
 }
