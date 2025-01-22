@@ -19,7 +19,11 @@ static t_stack	*set_stack(t_stack *stack, char **words);
 
 int	main(int argc, char **argv)
 {
-	check_args(argc, argv);
+	if (!check_args(argc, argv))
+	{
+		ft_putstr_fd("Error\n", 1);
+		return 0;
+	}
 	return (0);
 }
 
