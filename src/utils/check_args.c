@@ -71,6 +71,20 @@ int is_valid_str(char *s)
     return 1;
 }
 
+void free_matrix(char **matrix)
+{
+    int i;
+    if (!matrix)
+        return;
+
+    i = -1;
+    while(matrix[++i])
+    {
+        free(matrix[i]);
+        matrix[i] = NULL;
+    }
+}
+
 int check_args(int argc, char **argv)
 {
     char **temp_args;
@@ -94,6 +108,6 @@ int check_args(int argc, char **argv)
        i++;
     }
     if (argc == 2)
-        free(temp_args);
+        free_matrix(temp_args);
     return 1;
 }
