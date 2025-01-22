@@ -30,4 +30,11 @@ static t_stack	*set_stack(t_stack *stack, char **words);
 
 /*check args*/
 int check_args(int argc, char **args);
+
+/*stack basic instruction*/
+void stack_push(t_stack *src, t_stack *dest);
+void stack_swap(t_stack *ptr);
+void stack_rotate(t_stack *ptr);
+void stack_rrotate(t_stack *ptr);
 #endif
+
