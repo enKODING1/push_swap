@@ -19,7 +19,7 @@ static t_stack	*set_stack(t_stack *stack, char **words);
 
 int	main(int argc, char **argv)
 {
-	valid_args(argc, argv);
+	check_args(argc, argv);
 	return (0);
 }
 

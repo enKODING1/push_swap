@@ -36,5 +36,5 @@ int			stack_swap(t_stack *stack);
 int			stack_rotate(t_stack *stack);
 
 /*check args*/
-int valid_args(int argc, char **args);
+int check_args(int argc, char **args);
 #endif
