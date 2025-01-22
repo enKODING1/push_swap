@@ -21,19 +21,12 @@ typedef struct s_stack
 	int		count;
 }			t_stack;
 
-typedef struct s_arg_checker{
-		
-}	t_arg_checker;
-
 /*stack utils*/
 void	free_stack(t_stack *stack);
 void del(void *value);
 void show_list(void *content);
-
-/*push_swap utils*/
-int			stack_push(t_stack *src_stack, t_stack *dest_stack);
-int			stack_swap(t_stack *stack);
-int			stack_rotate(t_stack *stack);
+static t_stack	*create_stack(void);
+static t_stack	*set_stack(t_stack *stack, char **words);
 
 /*check args*/
 int check_args(int argc, char **args);
