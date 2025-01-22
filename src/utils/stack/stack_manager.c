@@ -17,7 +17,9 @@ void	free_stack(t_stack *stack)
 
 void show_list(void *content)
 {
-    ft_printf("[%s]->", content);
+    // ft_printf("[%s]->", content);
+		ft_putstr_fd(content, 1);
+		ft_putstr_fd("->", 1);
 }
 
 static t_stack	*create_stack(void)

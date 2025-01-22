@@ -2,8 +2,9 @@ CC = cc
 # CFLAGS = -Wall -Wextra -Werror
 CFLAGS =
 NAME = libpush_swap_utils.a
-SOURCES = utils/stack_manager.c \
-				  utils/check_args.c
+SOURCES = utils/stack/stack_manager.c \
+				  utils/check_args.c \
+					utils/instructions/basic.c
 OBJECTS = $(SOURCES:.c=.o)
 
 LIBFT_DIR = ../lib/libft

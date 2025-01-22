@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int is_space(char c)
 {
@@ -45,9 +44,7 @@ int check_range(char *s)
             i++;
         }
     }
-
     return 1;
-   
 }
 
 int is_valid_str(char *s)
