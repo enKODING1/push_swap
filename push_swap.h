@@ -17,24 +17,26 @@
 
 typedef struct s_stack
 {
-	t_list	*top;
-	int		count;
-}			t_stack;
+	t_list		*top;
+	int			count;
+}				t_stack;
 
 /*stack utils*/
-void	free_stack(t_stack *stack);
-void del(void *value);
-void show_list(void *content);
+void			free_stack(t_stack *stack);
+void			del(void *value);
+void			show_list(void *content);
 static t_stack	*create_stack(void);
 static t_stack	*set_stack(t_stack *stack, char **words);
 
 /*check args*/
-int check_args(int argc, char **args);
+int				check_args(int argc, char **args);
 
-/*stack basic instruction*/
-void stack_push(t_stack *src, t_stack *dest);
-void stack_swap(t_stack *ptr);
-void stack_rotate(t_stack *ptr);
-void stack_rrotate(t_stack *ptr);
+/*stack instruction*/
+void			stack_push(t_stack *src, t_stack *dest);
+void			stack_swap(t_stack *ptr);
+void			stack_rotate(t_stack *ptr);
+void			stack_rrotate(t_stack *ptr);
+void			swap_ab(t_stack *stack_a, t_stack *stack_b);
+void			rotate_ab(t_stack *stack_a, t_stack *stack_b);
+void			rrotate_ab(t_stack *stack_a, t_stack *stack_b);
 #endif
-

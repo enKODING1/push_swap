@@ -4,7 +4,8 @@ CFLAGS =
 NAME = libpush_swap_utils.a
 SOURCES = utils/stack/stack_manager.c \
 				  utils/check_args.c \
-					utils/instructions/basic.c
+					utils/instructions/basic.c \
+					utils/instructions/extend_instructions.c \
 OBJECTS = $(SOURCES:.c=.o)
 
 LIBFT_DIR = ../lib/libft
