@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include "push_swap.h"
+#include <stdio.h>
 
 int is_space(char c)
 {
@@ -72,60 +73,62 @@ int is_valid_str(char *s)
 void free_matrix(char **matrix)
 {
     int i;
-    if (!matrix)
-        return;
 
-    i = -1;
-    while(matrix[++i])
+    if (!matrix)
+        return; 
+    i = 0;
+    while (matrix[i])
     {
-        free(matrix[i]);
+        free(matrix[i]); 
         matrix[i] = NULL;
+        i++;
     }
+    free(matrix); 
+    matrix = NULL;
 }
 
-int create_nodes_by_args(t_stack *stack, char *str)
+
+int create_node_by_matrix(t_stack *stack, char *str)
 {
-    char **temp_args;
-    t_list *new;
-    t_stack *temp;
-    int temp_content;
+    t_list *temp_top;
     int i;
+    int is_dup;
+    char **temp_str;
 
     i = 0;
-    temp_content = 0;
-    temp_args = ft_split(str, ' ');
-    while(temp_args[i])
-    {
-        temp_content = ft_atoi(temp_args[i]);
-        new = ft_lstnew(ft_atoi(temp_content));
-        if (stack->top == NULL)
-            stack->top = new;
+    is_dup = 0;
+    temp_str = ft_split(str, ' ');
+    if (temp_str[i] && !stack->top)
+        stack->top = ft_lstnew(ft_strdup(temp_str[i++]));
 
-        temp = stack;
-        while (temp->top)
-        {
-            if (temp->top->content == temp_content)    
-            {
-                free_matrix(temp_args);    
-                free_stack(stack);
-                return 0;
-            }
-             temp->top = temp->top->next;
-        } 
-        ft_lstadd_back(&(stack->top), new);
+    while(temp_str[i] && !is_dup)
+    {
+       temp_top = stack->top;
+       while(temp_top && !is_dup) 
+       {
+           if (ft_atoi(temp_top->content) == ft_atoi(temp_str[i]))
+               is_dup = 1; 
+           temp_top = temp_top->next;
+       }
+       ft_lstadd_back(&(stack->top),ft_lstnew(ft_strdup(temp_str[i++])));
     }
-    free_matrix(temp_args);
+
+    free_matrix(temp_str);
+    if (is_dup)
+        return 0;
     return 1;
 }
 
 int check_args(int argc, char **argv)
 {
+    t_stack *head;
     char **temp_args;
     int i;
-
-    t_stack *head;          
+    int invalid;
     
+    head = malloc(sizeof(t_stack));
     i = 0;
+    invalid = 0;
     if (argc == 2)
         temp_args = ft_split(argv[1], ' ');
     else if (argc > 2)
@@ -134,18 +137,21 @@ int check_args(int argc, char **argv)
         temp_args = argv;
     }
 
-    while(temp_args[i])
+    while(temp_args[i] && !invalid)
     {
        if (!is_valid_str(temp_args[i]))
-            return 0;
+            invalid = 1;
        if (!check_range(temp_args[i]))
-            return 0;
-       if (!create_nodes_by_args(head, temp_args[i]))
-            return 0;
+            invalid = 1;
+       if (!create_node_by_matrix(head, temp_args[i]))
+            invalid = 1;
        i++;
     }
     if (argc == 2)
         free_matrix(temp_args);
-    free_stack(head);
+    ft_lstclear(&head->top, del);
+    free(head);
+    if (invalid)
+        return 0;
     return 1;
 }

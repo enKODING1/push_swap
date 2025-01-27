@@ -22,14 +22,13 @@ typedef struct s_stack
 }				t_stack;
 
 /*stack utils*/
-void			free_stack(t_stack *stack);
 void			del(void *value);
 void			show_list(void *content);
 static t_stack	*create_stack(void);
 static t_stack	*set_stack(t_stack *stack, char **words);
 
 /*check args*/
-int				check_args(int argc, char **args);
+int				check_args(int argc, char **argv);
 
 /*stack instruction*/
 void			stack_push(t_stack *src, t_stack *dest);
