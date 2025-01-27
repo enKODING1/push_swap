@@ -16,7 +16,7 @@ all: $(NAME)
 
 $(NAME): $(PUSH_SWAP_UTILS) $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) \
-		-I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./	\
+		-I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./push_swap.h	\
 		-L$(PUSH_SWAP_UTILS_DIR) -lpush_swap_utils
 
 $(PUSH_SWAP_UTILS):
