@@ -87,7 +87,6 @@ void free_matrix(char **matrix)
     matrix = NULL;
 }
 
-
 int create_node_by_matrix(t_stack *stack, char *str)
 {
     t_list *temp_top;

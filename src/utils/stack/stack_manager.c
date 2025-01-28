@@ -15,17 +15,17 @@ void show_list(void *content)
 		ft_putstr_fd("->", 1);
 }
 
-static t_stack	*create_stack(void)
-{
-	t_stack	*stack;
+// static t_stack	*create_stack(void)
+// {
+// 	t_stack	*stack;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->top = NULL;
-	stack->count = 0;
-	return (stack);
-}
+// 	stack = (t_stack *)malloc(sizeof(t_stack));
+// 	if (!stack)
+// 		return (NULL);
+// 	stack->top = NULL;
+// 	stack->count = 0;
+// 	return (stack);
+// }
 
 static t_stack	*set_stack(t_stack *stack, char **words)
 {

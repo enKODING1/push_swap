@@ -20,9 +20,15 @@ int	main(int argc, char **argv)
 	if (!check_args(argc, argv))
 	{
 		ft_putstr_fd("Error\n", 1);
-		return 0;
+		return (0);
 	}
 
-	
+	t_stack *stack_a;
+
+	stack_a = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack_a)
+		return (0);
+	create_stack(stack_a, argv);
+	ft_lstiter(stack_a->top, show_list);
 	return (0);
 }
