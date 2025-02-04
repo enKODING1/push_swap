@@ -24,9 +24,9 @@ typedef struct s_stack
 /*stack utils*/
 void			del(void *value);
 void			show_list(void *content);
-// static t_stack	*create_stack(void);
-static t_stack	*set_stack(t_stack *stack, char **words);
 void			create_stack(t_stack *stack, char **argv);
+void			set_index(t_stack *stack);
+void 	init_index(t_stack *stack);
 
 /*check args*/
 int				check_args(int argc, char **argv);
