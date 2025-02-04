@@ -17,18 +17,22 @@
 
 int	main(int argc, char **argv)
 {
-	if (!check_args(argc, argv))
-	{
-		ft_putstr_fd("Error\n", 1);
-		return (0);
-	}
+	// if (!check_args(argc, argv))
+	// {
+	// 	ft_putstr_fd("Error\n", 1);
+	// 	return (0);
+	// }
+	int num = 1;
+	t_list node;
 
-	t_stack *stack_a;
+	node.content = &num;
+	printf("value : %d\n", *(int *)node.content);
+	// t_stack *stack_a;
 
-	stack_a = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack_a)
-		return (0);
-	create_stack(stack_a, argv);
-	ft_lstiter(stack_a->top, show_list);
+	// stack_a = (t_stack *)malloc(sizeof(t_stack));
+	// if (!stack_a)
+	// 	return (0);
+	// create_stack(stack_a, argv);
+	// ft_lstiter(stack_a->top, show_list);
 	return (0);
 }

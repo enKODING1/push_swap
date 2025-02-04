@@ -3,7 +3,7 @@ CFLAGS = -g
 # CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
-SOURCES = main.c
+SOURCES = ./src/main.c
 OBJECTS = $(SOURCES:.c=.o)
 
 LIBFT_DIR = ./lib/libft
@@ -16,7 +16,7 @@ all: $(NAME)
 
 $(NAME): $(PUSH_SWAP_UTILS) $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) \
-		-I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./push_swap.h	\
+		-I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./include/	\
 		-L$(PUSH_SWAP_UTILS_DIR) -lpush_swap_utils
 
 $(PUSH_SWAP_UTILS):
@@ -24,7 +24,7 @@ $(PUSH_SWAP_UTILS):
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ \
-		 -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./
+		 -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./include/
 
 clean:
 	make fclean -C $(PUSH_SWAP_UTILS_DIR)

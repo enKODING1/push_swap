@@ -21,7 +21,7 @@ $(FT_PRINTF):
 	cp $(FT_PRINTF) $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ../
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ../include/
 
 clean:
 	make fclean -C $(FT_PRINTF_DIR)
