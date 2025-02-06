@@ -38,24 +38,30 @@ void 	init_index(t_stack *stack)
 	}
 }
 
-// content사이즈에 따른 index 순서 부여
-// void set_index(t_stack *stack)
-// {
-// 		t_list *biggest;
-// 		t_list *ptr;
-// 		int	highest;
-// 		int lst_size;
+void set_index(t_stack *stack)
+{
+		t_list *biggest;
+		t_list *ptr;
+		int	highest;
+		int lst_size;
 
-// 		lst_size = ft_lstsize(stack->top);
-// 		highest = -2147483648;
-// 		ptr = stack->top;
-// 		biggest = stack->top;
-// 		while(lst_size-- > 0)
-// 		{
-// 			while (ptr)
-// 			{
-// 				if (ft_atoi(ptr->content) < highest)	
-// 			}
-// 		}
+		lst_size = ft_lstsize(stack->top);
+		highest = -2147483648;
+		ptr = stack->top;
+		biggest = stack->top;
+		while(lst_size-- > 0)
+		{
+			while (ptr)
+			{
+				if (ft_atoi(ptr->content) == highest && ptr->index == -1) 	
+				{
+						ptr->index = 0;
+				}
+				if (ft_atoi(ptr->content) > highest && ptr->index == -1)	
+				{
+						
+				}
+			}
+		}
 		
-// }
+}
