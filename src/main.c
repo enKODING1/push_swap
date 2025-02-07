@@ -31,6 +31,11 @@ int	main(int argc, char **argv)
 		return (0);
 	create_stack(stack_a, argv);
 	init_index(stack_a);
-	printf("sizE: %d\n", ft_lstsize(stack_a->top));
+	set_index(stack_a);
+	for(int i = 0; stack_a->top->next != NULL; stack_a->top = stack_a->top->next)
+	{
+		printf("index: %d\n", stack_a->top->index);
+	}
+	// printf("sizE: %d\n", ft_lstsize(stack_a->top));
 	return (0);
 }
