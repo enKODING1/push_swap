@@ -1,5 +1,6 @@
 #include "libft.h"
 #include "push_swap.h"
+#include <stdio.h>
 
 void	create_stack(t_stack *stack, char **argv)
 {
@@ -19,49 +20,51 @@ void	create_stack(t_stack *stack, char **argv)
 				stack->top = ft_lstnew(ft_strdup(temp[j++]));
 				continue ;
 			}
-			ft_lstadd_back(&stack->top, ft_lstnew((temp[j++])));
+			ft_lstadd_back(&stack->top, ft_lstnew(ft_strdup(temp[j++])));
 		}
 		free_matrix(temp);
 		i++;
 	}
 }
 
-void 	init_index(t_stack *stack)
+void	init_index(t_stack *stack)
 {
-	t_list *ptr;
+	t_list	*ptr;
 
 	ptr = stack->top;
-	while(ptr)
+	while (ptr)
 	{
 		ptr->index = -1;
 		ptr = ptr->next;
 	}
 }
 
-void set_index(t_stack *stack)
+void	set_index(t_stack *stack)
 {
-		t_list *biggest;
-		t_list *ptr;
-		int	highest;
-		int lst_size;
+	t_list	*ptr;
+	t_list 	*biggest;
+	int		highest;
+	int		lst_size;
+	int		value;
 
-		lst_size = ft_lstsize(stack->top);
+	lst_size = ft_lstsize(stack->top);
+	highest = -2147483645;
+	ptr = stack->top;
+	while (lst_size-- > 0)
+	{
+		biggest = NULL;
+		while (ptr)
+		{
+			value = ft_atoi((char *)ptr->content);
+			if (ptr->index == -1 && value > highest)
+			{
+				highest = value;
+				biggest = ptr;
+			}
+			ptr = ptr->next;
+		}
+		biggest->index = lst_size; 	
 		highest = -2147483648;
 		ptr = stack->top;
-		biggest = stack->top;
-		while(lst_size-- > 0)
-		{
-			while (ptr)
-			{
-				if (ft_atoi(ptr->content) == highest && ptr->index == -1) 	
-				{
-						ptr->index = 0;
-				}
-				if (ft_atoi(ptr->content) > highest && ptr->index == -1)	
-				{
-						
-				}
-			}
-		}
-		
+	}
 }
