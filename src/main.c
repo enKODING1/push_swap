@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 21:17:42 by skang             #+#    #+#             */
-/*   Updated: 2025/02/09 19:26:31 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:15:35 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	main(int argc, char **argv)
 	create_stack(stack_a, argv);
 	init_index(stack_a);
 	set_index(stack_a);
-	// for(int i = 0; stack_a->top->next != NULL; stack_a->top = stack_a->top->next)
-	// {
-	// 	printf("index: %d\n", stack_a->top->index);
-	// }
+	radix(stack_a, stack_b);
+	// ft_lstiter(stack_a->top, show_list);
+	// ft_putstr_fd("\n", 1);
+	// ft_lstiter(stack_b->top, show_list);
 	// printf("sizE: %d\n", ft_lstsize(stack_a->top));
 	return (0);
 }

@@ -37,7 +37,18 @@ void			stack_push(t_stack *src, t_stack *dest);
 void			stack_swap(t_stack *ptr);
 void			stack_rotate(t_stack *ptr);
 void			stack_rrotate(t_stack *ptr);
-void			swap_ab(t_stack *stack_a, t_stack *stack_b);
-void			rotate_ab(t_stack *stack_a, t_stack *stack_b);
-void			rrotate_ab(t_stack *stack_a, t_stack *stack_b);
+void	push_a(t_stack *stack_a, t_stack *stack_b);
+void	push_b(t_stack *stack_a, t_stack *stack_b);
+void	rotate_a(t_stack *stack, int reverse);
+void	rotate_b(t_stack *stack, int reverse);
+void	rotate_ab(t_stack *stack_a, t_stack *stack_b);
+void	rrotate_ab(t_stack *stack_a, t_stack *stack_b);
+void	swap_a(t_stack *stack);
+void	swap_b(t_stack *stack);
+void	swap_ab(t_stack *stack_a, t_stack *stack_b);
+
+/*sort*/
+int get_max_index(t_stack *stack);
+int get_bit_length(int n);
+void radix(t_stack *stack_a, t_stack *stack_b);
 #endif

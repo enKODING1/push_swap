@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 19:10:11 by skang             #+#    #+#             */
-/*   Updated: 2025/02/09 19:10:12 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:20:51 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void	set_index(t_stack *stack)
 	int		value;
 
 	lst_size = ft_lstsize(stack->top);
-	highest = -2147483645;
 	ptr = stack->top;
 	while (lst_size-- > 0)
 	{
+		highest = -2147483648;
 		biggest = NULL;
 		while (ptr)
 		{
@@ -76,7 +76,6 @@ void	set_index(t_stack *stack)
 			ptr = ptr->next;
 		}
 		biggest->index = lst_size;
-		highest = -2147483648;
 		ptr = stack->top;
 	}
 }
