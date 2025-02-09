@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   basic.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/09 19:09:51 by skang             #+#    #+#             */
+/*   Updated: 2025/02/09 19:09:52 by skang            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "push_swap.h"
 
@@ -35,14 +47,13 @@ void	stack_rotate(t_stack *ptr)
 
 void	stack_rrotate(t_stack *ptr)
 {
-	t_list *top;
-	t_list *last;
-	t_list *temp;
+	t_list	*top;
+	t_list	*last;
+	t_list	*temp;
 
 	top = ptr->top;
 	last = ft_lstlast(ptr->top);
 	temp = ptr->top;
-
 	while (temp->next != last)
 	{
 		temp = temp->next;
@@ -52,7 +63,6 @@ void	stack_rrotate(t_stack *ptr)
 			break ;
 		}
 	}
-
 	ptr->top = last;
 	last->next = top;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/09 19:10:11 by skang             #+#    #+#             */
+/*   Updated: 2025/02/09 19:10:12 by skang            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "push_swap.h"
 #include <stdio.h>
@@ -42,7 +54,7 @@ void	init_index(t_stack *stack)
 void	set_index(t_stack *stack)
 {
 	t_list	*ptr;
-	t_list 	*biggest;
+	t_list	*biggest;
 	int		highest;
 	int		lst_size;
 	int		value;
@@ -63,7 +75,7 @@ void	set_index(t_stack *stack)
 			}
 			ptr = ptr->next;
 		}
-		biggest->index = lst_size; 	
+		biggest->index = lst_size;
 		highest = -2147483648;
 		ptr = stack->top;
 	}
