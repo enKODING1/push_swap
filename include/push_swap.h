@@ -49,9 +49,29 @@ void	swap_ab(t_stack *stack_a, t_stack *stack_b);
 
 /*sort*/
 int get_max_index(t_stack *stack);
+int	get_min_index(t_stack *stack);
 int get_bit_length(int n);
 void radix(t_stack *stack_a, t_stack *stack_b);
+void two_wort(t_stack *stack);
+void three_sort(t_stack *stack);
+void four_sort(t_stack *stack_a, t_stack *stack_b);
+void five_sort(t_stack *stack_a, t_stack *stack_b);
 
 /*sort check*/
 int is_sorted(t_stack *stack);
 #endif
+
+// int get_min_index(t_stack *stack)
+// {
+// 	int min;
+
+// 	min = 2147483647;
+// 	while (stack->top)
+// 	{
+// 		if (stack->top->index < min)
+// 			min = stack->top->index;
+// 		stack->top = stack->top->next;
+// 	}
+	
+// 	return min;
+// }

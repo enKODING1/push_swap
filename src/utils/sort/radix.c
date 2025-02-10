@@ -36,5 +36,7 @@ void	radix(t_stack *stack_a, t_stack *stack_b)
 		}
 		while (stack_b->top)
 			push_a(stack_a, stack_b);
+		if (is_sorted(stack_a))
+			return;
 	}
 }

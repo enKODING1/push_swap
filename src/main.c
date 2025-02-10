@@ -34,10 +34,13 @@ int	main(int argc, char **argv)
 	create_stack(stack_a, argv);
 	init_index(stack_a);
 	set_index(stack_a);
-	radix(stack_a, stack_b);
 	// ft_lstiter(stack_a->top, show_list);
-	// ft_putstr_fd("\n", 1);
-	// ft_lstiter(stack_b->top, show_list);
-	// printf("sizE: %d\n", ft_lstsize(stack_a->top));
+	if(is_sorted(stack_a))
+		return 0;
+	// three_sort(stack_a);
+	// five_sort(stack_a, stack_b);
+	four_sort(stack_a, stack_b);
+	
+	// radix(stack_a, stack_b);
 	return (0);
 }

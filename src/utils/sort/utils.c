@@ -12,10 +12,38 @@
 
 #include "libft.h"
 #include "push_swap.h"
+#include <stdio.h>
 
-int	get_max_index(t_stack *stack)
+int get_max_index(t_stack *stack)
 {
-	return (ft_lstsize(stack->top) - 1);
+	int max;
+	t_list *lst;
+
+	max = -1;
+	lst = stack->top;
+	while (lst)
+	{
+		if (lst->index > max)
+			max = lst->index;
+		lst = lst->next;
+	}
+	return max;
+}
+
+int get_min_index(t_stack *stack)
+{
+	int min;
+	t_list *lst;
+
+	min = 2147483647;
+	lst = stack->top;
+	while (lst)
+	{
+		if (lst->index < min)
+			min = lst->index;
+		lst = lst->next;
+	}
+	return min;
 }
 
 int	get_bit_length(int n)
