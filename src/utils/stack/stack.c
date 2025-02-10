@@ -68,14 +68,15 @@ void	set_index(t_stack *stack)
 		while (ptr)
 		{
 			value = ft_atoi((char *)ptr->content);
-			if (ptr->index == -1 && value > highest)
+			if (ptr->index == -1 && value >= highest)
 			{
 				highest = value;
 				biggest = ptr;
 			}
 			ptr = ptr->next;
 		}
-		biggest->index = lst_size;
+		if (biggest)
+			biggest->index = lst_size;
 		ptr = stack->top;
 	}
 }
