@@ -14,22 +14,57 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	is_space(char c)
+static int	is_space(int n)
 {
-	if (c == 32 || c == 9)
-		return (1);
-	return (0);
+	return ((n >= 8 && n <= 13) || n == 32);
 }
+
+static int	is_operator(char c)
+{
+	return (c == '+' || c == '-');
+}
+
+static int	is_num(char n)
+{
+	return (n >= '0' && n <= '9');
+}
+
+long	is_valid_integer(const char *nptr)
+{
+	int	operator;
+	long	result;
+	long max;
+	long min;
+
+	operator = 1;
+	result = 0;
+	while (is_space(*nptr))
+		nptr++;
+	if (is_operator(*nptr))
+	{
+		if (*nptr == '-')
+			operator = -1;
+		nptr++;
+	}
+	while (is_num(*nptr))
+	{
+		result *= 10;
+		result += *nptr - '0';
+		nptr++;
+	}
+	result *= operator;
+	if (result > 2147483647 || result < -2147483648)
+		return 0;
+	return 1;
+}
+
 
 int	check_range(char *s)
 {
-	long	temp;
 	int		i;
 
-	temp = 0;
 	i = 0;
-	temp = ft_atoi(s);
-	if (temp >= 2147483647 || temp <= -2147483648)
+	if (!is_valid_integer(s))
 		return (0);
 	if (ft_strchr(s, ' '))
 	{
@@ -37,8 +72,7 @@ int	check_range(char *s)
 		{
 			if (is_space(s[i]) && ft_isdigit(s[i + 1]))
 			{
-				temp = ft_atoi(&s[i]);
-				if (temp >= 2147483647 || temp <= -2147483648)
+				if (!is_valid_integer(&s[i]))
 					return (0);
 			}
 			i++;
@@ -122,6 +156,7 @@ int	check_args(int argc, char **argv)
 	int		invalid;
 
 	head = malloc(sizeof(t_stack));
+	head->top = NULL;
 	i = 0;
 	invalid = 0;
 	if (argc == 2)
