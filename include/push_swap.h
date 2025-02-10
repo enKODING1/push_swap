@@ -51,4 +51,7 @@ void	swap_ab(t_stack *stack_a, t_stack *stack_b);
 int get_max_index(t_stack *stack);
 int get_bit_length(int n);
 void radix(t_stack *stack_a, t_stack *stack_b);
+
+/*sort check*/
+int is_sorted(t_stack *stack);
 #endif
