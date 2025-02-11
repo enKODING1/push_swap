@@ -7,7 +7,6 @@ SOURCES = ./src/main.c
 OBJECTS = $(SOURCES:.c=.o)
 
 LIBFT_DIR = ./lib/libft
-FT_PRINTF_DIR = ./lib/ft_printf
 PUSH_SWAP_UTILS_DIR = ./src
 
 PUSH_SWAP_UTILS = $(PUSH_SWAP_UTILS_DIR)/libpush_swap_utils.a
@@ -16,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(PUSH_SWAP_UTILS) $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME) \
-		-I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./include/	\
+		-I $(LIBFT_DIR) -I ./include/	\
 		-L$(PUSH_SWAP_UTILS_DIR) -lpush_swap_utils
 
 $(PUSH_SWAP_UTILS):
@@ -24,7 +23,7 @@ $(PUSH_SWAP_UTILS):
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ \
-		 -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ./include/
+		 -I $(LIBFT_DIR) -I ./include/
 
 clean:
 	make fclean -C $(PUSH_SWAP_UTILS_DIR)

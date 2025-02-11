@@ -9,25 +9,24 @@ SOURCES = utils/stack/stack_utils.c utils/stack/stack.c \
 OBJECTS = $(SOURCES:.c=.o)
 
 LIBFT_DIR = ../lib/libft
-FT_PRINTF_DIR = ../lib/ft_printf
 
 LIBFT = $(LIBFT_DIR)/libft.a
-FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
-$(NAME): $(FT_PRINTF) $(OBJECTS)
+$(NAME): $(LIBFT) $(OBJECTS)
 	ar rcs $@ $(OBJECTS)
 
-$(FT_PRINTF):
-	make -C $(FT_PRINTF_DIR)
-	cp $(FT_PRINTF) $(NAME)
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+	make bonus -C $(LIBFT_DIR)
+	cp $(LIBFT) $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_DIR) -I $(FT_PRINTF_DIR) -I ../include/
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(LIBFT_DIR) -I ../include/
 
 clean:
-	make fclean -C $(FT_PRINTF_DIR)
+	make fclean -C $(LIBFT_DIR)
 	rm -f $(OBJECTS)
 
 fclean: clean
