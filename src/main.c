@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 21:17:42 by skang             #+#    #+#             */
-/*   Updated: 2025/02/09 23:15:35 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 12:50:25 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ int	main(int argc, char **argv)
 	init_index(stack_a);
 	set_index(stack_a);
 	// ft_lstiter(stack_a->top, show_list);
-	if(is_sorted(stack_a))
-		return 0;
+	if (is_sorted(stack_a))
+		return (0);
 	// three_sort(stack_a);
 	// five_sort(stack_a, stack_b);
 	four_sort(stack_a, stack_b);
-	
 	// radix(stack_a, stack_b);
 	return (0);
 }

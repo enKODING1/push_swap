@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 23:15:50 by skang             #+#    #+#             */
-/*   Updated: 2025/02/09 23:15:51 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 12:51:21 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-#include <stdio.h>
 
-int get_max_index(t_stack *stack)
+int	get_max_index(t_stack *stack)
 {
-	int max;
-	t_list *lst;
+	int		max;
+	t_list	*lst;
 
 	max = -1;
 	lst = stack->top;
@@ -27,13 +26,13 @@ int get_max_index(t_stack *stack)
 			max = lst->index;
 		lst = lst->next;
 	}
-	return max;
+	return (max);
 }
 
-int get_min_index(t_stack *stack)
+int	get_min_index(t_stack *stack)
 {
-	int min;
-	t_list *lst;
+	int		min;
+	t_list	*lst;
 
 	min = 2147483647;
 	lst = stack->top;
@@ -43,7 +42,7 @@ int get_min_index(t_stack *stack)
 			min = lst->index;
 		lst = lst->next;
 	}
-	return min;
+	return (min);
 }
 
 int	get_bit_length(int n)
@@ -57,4 +56,22 @@ int	get_bit_length(int n)
 		count++;
 	}
 	return (count);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	int		max;
+	t_list	*lst;
+
+	max = -1;
+	lst = stack->top;
+	while (lst)
+	{
+		if (lst->index > max)
+			max = lst->index;
+		else
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
 }

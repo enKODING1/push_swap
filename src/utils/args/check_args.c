@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 21:17:42 by skang             #+#    #+#             */
-/*   Updated: 2025/02/09 19:10:25 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 12:50:35 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ static int	is_num(char n)
 
 long	is_valid_integer(const char *nptr)
 {
-	int	operator;
+	int		operator;
 	long	result;
-	long max;
-	long min;
+	long	max;
+	long	min;
 
-	operator = 1;
+	operator= 1;
 	result = 0;
 	while (is_space(*nptr))
 		nptr++;
 	if (is_operator(*nptr))
 	{
 		if (*nptr == '-')
-			operator = -1;
+			operator= - 1;
 		nptr++;
 	}
 	while (is_num(*nptr))
@@ -54,14 +54,13 @@ long	is_valid_integer(const char *nptr)
 	}
 	result *= operator;
 	if (result > 2147483647 || result < -2147483648)
-		return 0;
-	return 1;
+		return (0);
+	return (1);
 }
-
 
 int	check_range(char *s)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (!is_valid_integer(s))

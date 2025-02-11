@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 17:20:02 by skang             #+#    #+#             */
-/*   Updated: 2024/10/15 14:59:35 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 12:52:25 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_list
 {
 	void			*content;
-	int	index;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 int					ft_isalpha(int c);

@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 23:15:44 by skang             #+#    #+#             */
-/*   Updated: 2025/02/09 23:16:33 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 12:51:09 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	radix(t_stack *stack_a, t_stack *stack_b)
 		while (stack_b->top)
 			push_a(stack_a, stack_b);
 		if (is_sorted(stack_a))
-			return;
+			return ;
 	}
 }
