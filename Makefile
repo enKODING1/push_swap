@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -g
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
 SOURCES = ./src/main.c

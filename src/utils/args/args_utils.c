@@ -1,62 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   args_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 21:17:42 by skang             #+#    #+#             */
-/*   Updated: 2025/02/11 12:50:35 by skang            ###   ########.fr       */
+/*   Created: 2025/02/11 15:28:54 by skang             #+#    #+#             */
+/*   Updated: 2025/02/11 15:28:55 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-#include <stdio.h>
-
-static int	is_space(int n)
-{
-	return ((n >= 8 && n <= 13) || n == 32);
-}
-
-static int	is_operator(char c)
-{
-	return (c == '+' || c == '-');
-}
-
-static int	is_num(char n)
-{
-	return (n >= '0' && n <= '9');
-}
-
-long	is_valid_integer(const char *nptr)
-{
-	int		operator;
-	long	result;
-	long	max;
-	long	min;
-
-	operator= 1;
-	result = 0;
-	while (is_space(*nptr))
-		nptr++;
-	if (is_operator(*nptr))
-	{
-		if (*nptr == '-')
-			operator= - 1;
-		nptr++;
-	}
-	while (is_num(*nptr))
-	{
-		result *= 10;
-		result += *nptr - '0';
-		nptr++;
-	}
-	result *= operator;
-	if (result > 2147483647 || result < -2147483648)
-		return (0);
-	return (1);
-}
 
 int	check_range(char *s)
 {
@@ -143,43 +98,6 @@ int	create_node_by_matrix(t_stack *stack, char *str)
 	}
 	free_matrix(temp_str);
 	if (is_dup)
-		return (0);
-	return (1);
-}
-
-int	check_args(int argc, char **argv)
-{
-	t_stack	*head;
-	char	**temp_args;
-	int		i;
-	int		invalid;
-
-	head = malloc(sizeof(t_stack));
-	head->top = NULL;
-	i = 0;
-	invalid = 0;
-	if (argc == 2)
-		temp_args = ft_split(argv[1], ' ');
-	else if (argc > 2)
-	{
-		i = 1;
-		temp_args = argv;
-	}
-	while (temp_args[i] && !invalid)
-	{
-		if (!is_valid_str(temp_args[i]))
-			invalid = 1;
-		if (!check_range(temp_args[i]))
-			invalid = 1;
-		if (!create_node_by_matrix(head, temp_args[i]))
-			invalid = 1;
-		i++;
-	}
-	if (argc == 2)
-		free_matrix(temp_args);
-	ft_lstclear(&head->top, del);
-	free(head);
-	if (invalid)
 		return (0);
 	return (1);
 }

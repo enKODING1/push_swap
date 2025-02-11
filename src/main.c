@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 21:17:42 by skang             #+#    #+#             */
-/*   Updated: 2025/02/11 12:50:25 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 15:27:52 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a->top = NULL;
 	stack_b->top = NULL;
-	initial_stack(stack_a, argv);	
+	initial_stack(stack_a, argv);
 	sort(stack_a, stack_b, argv);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

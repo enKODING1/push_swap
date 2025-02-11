@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 19:10:11 by skang             #+#    #+#             */
-/*   Updated: 2025/02/09 23:20:51 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 15:43:12 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	set_index(t_stack *stack)
 	t_list	*biggest;
 	int		highest;
 	int		lst_size;
-	int		value;
 
 	lst_size = ft_lstsize(stack->top);
 	ptr = stack->top;
@@ -67,10 +66,9 @@ void	set_index(t_stack *stack)
 		biggest = NULL;
 		while (ptr)
 		{
-			value = ft_atoi((char *)ptr->content);
-			if (ptr->index == -1 && value >= highest)
+			if (ptr->index == -1 && ft_atoi((char *)ptr->content) >= highest)
 			{
-				highest = value;
+				highest = ft_atoi((char *)ptr->content);
 				biggest = ptr;
 			}
 			ptr = ptr->next;

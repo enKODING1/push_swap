@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 21:17:59 by skang             #+#    #+#             */
-/*   Updated: 2025/02/11 12:52:43 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 15:43:35 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,27 @@ typedef struct s_stack
 	int		count;
 }			t_stack;
 
-/*stack utils*/
+/*stack*/
 void		del(void *value);
 void		show_list(void *content);
 void		create_stack(t_stack *stack, char **argv);
-void 		initial_stack(t_stack *stack, char **argv);
+void		initial_stack(t_stack *stack, char **argv);
 void		set_index(t_stack *stack);
 void		init_index(t_stack *stack);
+void		free_stack(t_stack **stack);
 
-/*check args*/
+/*args*/
 int			check_args(int argc, char **argv);
 void		free_matrix(char **matrix);
+int			create_node_by_matrix(t_stack *stack, char *str);
+int			is_valid_integer(const char *nptr);
+int			is_valid_str(char *s);
+int			check_range(char *s);
+int			is_space(int n);
+int			is_operator(char c);
+int			is_num(char n);
 
-/*stack instruction*/
+/*instruction*/
 void		stack_push(t_stack *src, t_stack *dest);
 void		stack_swap(t_stack *ptr);
 void		stack_rotate(t_stack *ptr);

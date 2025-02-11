@@ -1,8 +1,11 @@
-CC = gcc -g
-# CFLAGS = -Wall -Wextra -Werror
+CC = cc -g
+CFLAGS = -Wall -Wextra -Werror
 CFLAGS =
 NAME = libpush_swap_utils.a
-SOURCES = utils/stack/stack_utils.c utils/stack/stack.c utils/args/check_args.c utils/instructions/instructions.c utils/instructions/push_type.c utils/instructions/rotate_type.c utils/instructions/swap_type.c utils/sort/radix.c utils/sort/sort_utils.c utils/sort/sort.c utils/sort/sort_core.c
+SOURCES = utils/stack/stack_utils.c utils/stack/stack.c \
+		  utils/args/args_core.c utils/args/args_utils.c utils/args/overflow_checker.c\
+		  utils/instructions/instructions.c utils/instructions/push_type.c utils/instructions/rotate_type.c utils/instructions/swap_type.c \
+		  utils/sort/radix.c utils/sort/sort_utils.c utils/sort/sort.c utils/sort/sort_core.c
 OBJECTS = $(SOURCES:.c=.o)
 
 LIBFT_DIR = ../lib/libft
