@@ -25,6 +25,7 @@ typedef struct s_stack
 void		del(void *value);
 void		show_list(void *content);
 void		create_stack(t_stack *stack, char **argv);
+void 		initial_stack(t_stack *stack, char **argv);
 void		set_index(t_stack *stack);
 void		init_index(t_stack *stack);
 
@@ -52,10 +53,11 @@ int			get_max_index(t_stack *stack);
 int			get_min_index(t_stack *stack);
 int			get_bit_length(int n);
 void		radix(t_stack *stack_a, t_stack *stack_b);
-void		two_wort(t_stack *stack);
+void		two_sort(t_stack *stack);
 void		three_sort(t_stack *stack);
 void		four_sort(t_stack *stack_a, t_stack *stack_b);
 void		five_sort(t_stack *stack_a, t_stack *stack_b);
+void		sort(t_stack *stack_a, t_stack *stack_b, char **argv);
 
 /*sort check*/
 int			is_sorted(t_stack *stack);

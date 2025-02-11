@@ -31,15 +31,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_a->top = NULL;
 	stack_b->top = NULL;
-	create_stack(stack_a, argv);
-	init_index(stack_a);
-	set_index(stack_a);
-	// ft_lstiter(stack_a->top, show_list);
-	if (is_sorted(stack_a))
-		return (0);
-	// three_sort(stack_a);
-	// five_sort(stack_a, stack_b);
-	four_sort(stack_a, stack_b);
-	// radix(stack_a, stack_b);
+	initial_stack(stack_a, argv);	
+	sort(stack_a, stack_b, argv);
 	return (0);
 }

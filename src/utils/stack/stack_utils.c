@@ -13,6 +13,13 @@
 #include "libft.h"
 #include "push_swap.h"
 
+void initial_stack(t_stack *stack, char **argv)
+{
+    create_stack(stack, argv);
+    init_index(stack);
+    set_index(stack);
+}
+
 void	del(void *value)
 {
 	if (value)
@@ -24,3 +31,4 @@ void	show_list(void *content)
 	ft_putstr_fd(content, 1);
 	ft_putstr_fd("->", 1);
 }
+
