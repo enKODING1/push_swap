@@ -6,13 +6,12 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 23:15:44 by skang             #+#    #+#             */
-/*   Updated: 2025/02/11 12:51:09 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/11 16:16:01 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-#include <stdio.h>
 
 void	radix(t_stack *stack_a, t_stack *stack_b)
 {
