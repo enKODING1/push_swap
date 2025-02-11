@@ -18,7 +18,8 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-
+	if (argc == 1)
+		return 0;
 	if (!check_args(argc, argv))
 	{
 		ft_putstr_fd("Error\n", 1);
