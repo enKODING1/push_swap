@@ -49,6 +49,10 @@ int	is_valid_str(char *s)
 			i++;
 			continue ;
 		}
+		if ((s[i] == '-' || s[i] == '+') && (s[i+1] == '-' || s[i + 1] == '+'))	
+			return (0);
+		if (ft_isdigit(s[i]) && (s[i+1] == '-' || s[i+1] == '+'))
+			return (0);
 		if (!ft_isdigit(s[i]) && !is_space(s[i]))
 			return (0);
 		i++;
