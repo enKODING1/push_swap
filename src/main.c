@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 21:17:42 by skang             #+#    #+#             */
-/*   Updated: 2025/02/11 15:27:52 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/12 13:42:47 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+
 	if (argc == 1)
-		return 0;
+		return (0);
 	if (!check_args(argc, argv))
 	{
 		ft_putstr_fd("Error\n", 1);

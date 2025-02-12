@@ -6,7 +6,7 @@
 /*   By: skang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 15:28:54 by skang             #+#    #+#             */
-/*   Updated: 2025/02/11 15:28:55 by skang            ###   ########.fr       */
+/*   Updated: 2025/02/12 13:49:06 by skang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ int	is_valid_str(char *s)
 	num_flag = 0;
 	while (s[i])
 	{
-		if ((s[i] == '-' || s[i] == '+') && (ft_isdigit(s[i + 1])))
+		if (is_operator(s[i]) && (ft_isdigit(s[i + 1])))
 		{
 			i++;
 			continue ;
 		}
-		if ((s[i] == '-' || s[i] == '+') && (s[i+1] == '-' || s[i + 1] == '+'))	
+		if (is_operator(s[i]) && is_operator(s[i + 1]))
 			return (0);
-		if (ft_isdigit(s[i]) && (s[i+1] == '-' || s[i+1] == '+'))
+		if (ft_isdigit(s[i]) && is_operator(s[i + 1]))
 			return (0);
 		if (!ft_isdigit(s[i]) && !is_space(s[i]))
 			return (0);
